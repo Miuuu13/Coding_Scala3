@@ -62,7 +62,7 @@ class Rational(val n: Int, val d: Int) {
   def reciprocal: Rational =
     new Rational(d, n)
 
-  // 1d) 
+  // 1d)
 
 
 
