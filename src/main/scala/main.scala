@@ -6,6 +6,10 @@ def main(): Unit = {
   val minusTwoThird = -twoThrird //prints the negated rational
   two.unary_- //-2
   twoThrird.reciprocal //3/2
+  val four = new Rational(0,4)
+  //four.reciprocal //thows wanted exception
+  val fourFifth = new Rational(4, 5)
+  fourFifth.reciprocal
 
 
 
@@ -41,9 +45,9 @@ class Rational(val n: Int, val d: Int) {
   else
     println(s"Rational: $numerator / $denominator")
 
-  // 1b) Negate the Rational
+  // Negate the Rational
 
-  /** Class to negate a Rational
+  /** To negate a Rational
    *
    * @param this implicit the rational that will be negated
    * @return new negated rational representing the negated rational
@@ -52,17 +56,29 @@ class Rational(val n: Int, val d: Int) {
   def unary_- : Rational =
     new Rational(-n, d)
 
-  // 1c) Reciprocal of the rational
-  /** Class to create the reciprocal of a rational
+  // Reciprocal of the rational
+  /** Create the reciprocal of a rational
    *
    * @param this implicit the rational of which the reciprocal is negated
    * @return new rational representing the reciprocal of the rational
+   * @throws ArithmeticException if the denominator is 0
    *
    */
   def reciprocal: Rational =
-    new Rational(d, n)
+    if n == 0 then
+      throw new ArithmeticException("The numerator is 0!")
+    else
+      new Rational(d, n)
 
-  // 1d)
+
+  // Substraction of rationals
+
+  def -(other: Rational) =
+    new Rational(
+      numerator - other.numerator,
+      denominator - other.denominator)
+
+
 
 
 
